@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489aecc0b64de0440945fa818415fef0, type: 3}
+  m_Name: BGConfig
+  m_EditorClassIdentifier: Assembly-CSharp::BGConfig
+  layers:
+  - name: Sky
+    depth: 8
+    renderOrder: 10
+    template: {fileID: 8100000000000001, guid: 3f7a9c21e8d54b6a90c1f2d84e57ab36, type: 3}
+    tileWidth: 24
+  - name: Mountain
+    depth: 4
+    renderOrder: 20
+    template: {fileID: 8200000000000001, guid: 7c2e91f4a6b83d05e1f94c72da38b510, type: 3}
+    tileWidth: 24
+  - name: Forest
+    depth: 2
+    renderOrder: 30
+    template: {fileID: 8300000000000001, guid: 11c0a7d503055e4438d8e8664618c20c, type: 3}
+    tileWidth: 24
+  - name: Foreground
+    depth: 1
+    renderOrder: 40
+    template: {fileID: 8400000000000001, guid: eb2f4ba0affed2d4b8016e6d61ab03cb, type: 3}
+    tileWidth: 24

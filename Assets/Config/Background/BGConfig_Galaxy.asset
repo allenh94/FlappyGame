@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489aecc0b64de0440945fa818415fef0, type: 3}
+  m_Name: BGConfig_Galaxy
+  m_EditorClassIdentifier: Assembly-CSharp::BGConfig
+  layers:
+  - name: Galaxy_Background
+    depth: 10
+    renderOrder: 0
+    template: {fileID: 8100000000000001, guid: bd57218189bf79c4b988816ad0703e26, type: 3}
+    tileWidth: 30

@@ -1,0 +1,58 @@
+# ===== Unity generated =====
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+/[Bb]uild/
+/[Bb]uilds/
+
+# ===== Unity generated project files =====
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# ===== Builds =====
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# ===== Crash reports =====
+sysinfo.txt
+crashlytics-build.properties
+
+# ===== OS / IDE =====
+.DS_Store
+Thumbs.db
+.vs/
+.idea/
+*.DotSettings.user
+
+# ===== Project specific =====
+/Build_Web/
+/Build_Web.zip
+/.codex/
+/.omo/
+/.scratch/
+/.opencode/node_modules/
+
+# ===== Personal notes (not for publishing) =====
+/docs/self-study/
+/docs/study/
+
+# ===== Secrets (never commit) =====
+/Assets/LootLockerSDK/Resources/Config/LootLockerConfig.asset

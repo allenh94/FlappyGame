@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182cd195a28310e479cddf7ff82822f8, type: 3}
+  m_Name: LootLockerConfig
+  m_EditorClassIdentifier: lootlocker.lootlockersdk.runtime::LootLocker.LootLockerConfig
+  apiKey: <YOUR_GAME_API_KEY>
+  adminToken: 
+  domainKey: <YOUR_DOMAIN_KEY>
+  game_version: 1.0.0.1
+  sdk_version: 8.2.0
+  logLevel: 2
+  prettifyJson: 1
+  obfuscateLogs: 1
+  logErrorsAsWarnings: 0
+  logInBuilds: 1
+  allowTokenRefresh: 1
+  enablePresence: 0
+  enablePresenceAutoConnect: 1
+  enablePresenceAutoDisconnectOnFocusChange: 0
+  enablePresenceInEditor: 1
+  multiUserSessionMode: 2
+  enableEditorAdminExtension: 1
+  url: https://api.lootlocker.com/v1
+  adminUrl: <YOUR_ADMIN_URL>
+  playerUrl: <YOUR_PLAYER_URL>
+  userUrl: <YOUR_USER_URL>
+  webSocketBaseUrl: <YOUR_WSS_URL>
+  baseUrl: <YOUR_BASE_URL>
+  clientSideRequestTimeOut: 180
