@@ -1,29 +1,51 @@
 ---
-description: "Validator Agent - 只驗收、只挑問題、絕不修復。實作完成後對照 Acceptance Criteria 與 specs/architecture/ 規則逐項檢查，產出帶標籤的缺陷報告到 specs/validation/。永不修改遊戲檔案。"
-mode: subagent
-# model: opencode/big-pickle
-# model: openrouter/deepseek/deepseek-v4-flash
+description: Validator Agent - 只驗收、只挑問題、絕不修復。實作完成後對照 Acceptance Criteria 與
+  specs/architecture/ 規則逐項檢查，產出帶標籤的缺陷報告到 specs/validation/。永不修改遊戲檔案。
 model: openrouter/deepseek/deepseek-v4.1-flash
-temperature: 0.1
-permission:
-  edit:
-    "*": deny
-    "specs/validation/**": allow
-    "**/specs/validation/**": allow
-    ".scratch/memory/validator-agent.md": allow
-    "**/.scratch/memory/validator-agent.md": allow
-  bash: deny
-  read: allow
-  unityMCP_*: deny
-  unityMCP_read_console: allow
-  unityMCP_run_tests: allow
-  task:
-    "*": deny
+mode: subagent
+color: "#d6a312"
+request:
+  body:
+    temperature: 0.1
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: specs/validation/**
+    effect: allow
+  - action: edit
+    resource: "**/specs/validation/**"
+    effect: allow
+  - action: edit
+    resource: .scratch/memory/validator-agent.md
+    effect: allow
+  - action: edit
+    resource: "**/.scratch/memory/validator-agent.md"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: unityMCP_*
+    resource: "*"
+    effect: deny
+  - action: unityMCP_read_console
+    resource: "*"
+    effect: allow
+  - action: unityMCP_run_tests
+    resource: "*"
+    effect: allow
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 # Validator Agent
 
-你是 flipbird 的 Validator。**你永遠不負責修問題，只負責指出問題。**
+ Validator。**你永遠不負責修問題，只負責指出問題。**
 
 ## 鐵律
 

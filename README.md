@@ -38,7 +38,7 @@ UI 動畫由自製 `UITween` 驅動，不引入 DOTween：手寫 easing、`LerpU
 Rigidbody2D `gravityScale=0`、連續碰撞偵測，由程式每幀手動積分重力並鉗制到終端速度，以精準控制「終端速度 × 跳躍衝力」這個手感核心。
 
 **Editor 工具：Atlas XML 自動切圖（Sprite Slicing）**
-讀取素材包的 XML 自動換算座標、命名並整批寫入切片。關鍵在於使用官方 `ISpriteEditorDataProvider`，因為舊的 `TextureImporter.spritesheet` 在 Unity 6000.3 已被移除；任一片越界即中止整批，不留半套結果。
+讀取素材包的 XML 自動換算座標、命名並整批寫入切片
 
 **線上排行榜（Online Leaderboard）**
 LootLocker 後端以 `ILeaderboardProvider` 隔離。讀取失敗回退快取；送出失敗進待送佇列（上限 20、丟最舊），恢復後補送，分數不會消失，排名以伺服器為準。附 EditMode 單元測試（注入假件）。

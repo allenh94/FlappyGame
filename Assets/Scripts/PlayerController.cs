@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private BlobAnimator blobAnimator; // 動畫控制層（T4 場景接線；Awake GetComponent fallback）
+    [SerializeField] private AudioManager audioManager; // 音效層（場景接線；Awake GetComponent/FindFirstObjectByType fallback）
 
     [Header("Movement")]
     [SerializeField] private float flapForce = 12f;
@@ -32,6 +33,10 @@ public class PlayerController : MonoBehaviour
         bodyCollider = GetComponent<Collider2D>();
         if (blobAnimator == null)
             blobAnimator = GetComponent<BlobAnimator>(); // T4 場景接線前防禦性解析
+        if (audioManager == null)
+            audioManager = GetComponent<AudioManager>(); // 場景接線前防禦性解析
+        if (audioManager == null)
+            audioManager = FindFirstObjectByType<AudioManager>(); // 跨物件 fallback（比照 blobAnimator 模式）
 
         rb.gravityScale = 0f; // We handle gravity manually for terminal velocity
         rb.freezeRotation = true; // We handle rotation manually
@@ -103,6 +108,7 @@ public class PlayerController : MonoBehaviour
     {
         isLanding = false; // 離開 Land 狀態（Land 中按 jump → 012 → OnJumpRise 上升）
         currentVelocity = flapForce;
+        if (audioManager != null) audioManager.PlayJump(); // 起跳瞬間音效（每次跳躍一次）
     }
 
     private void HandleGravity()

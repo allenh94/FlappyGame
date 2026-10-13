@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PipeSpawner pipeSpawner;
     [SerializeField] private BGManager backgroundManager;
     [SerializeField] private BlobAnimator blobAnimator; // 死亡動畫控制（T4 場景接線；OnEnable fallback）
+    [SerializeField] private AudioManager audioManager; // 音效層（場景接線；OnEnable FindFirstObjectByType fallback）
 
     [Header("Boundaries")]
     [SerializeField] private float floorY = -5f;
@@ -56,6 +57,8 @@ public class GameManager : MonoBehaviour
         // T3：死亡淡出完成 → EndGame（淡出由 BlobAnimator 內部啟動，不訂閱 DissasembleComplete）
         if (blobAnimator == null)
             blobAnimator = FindFirstObjectByType<BlobAnimator>(); // 場景未接線（T4）fallback（比對 BlobAnimator 模式）
+        if (audioManager == null)
+            audioManager = FindFirstObjectByType<AudioManager>(); // 場景未接線 fallback（比照 BlobAnimator 模式）
         if (blobAnimator != null)
         {
             blobAnimator.OnDeathFadeComplete += HandleDeathFadeComplete;
@@ -228,6 +231,7 @@ public class GameManager : MonoBehaviour
         Collider2D bodyCollider = player.GetComponent<Collider2D>();
         if (bodyCollider != null) bodyCollider.enabled = false;
         blobAnimator.PlayDisassemble();               // 播死亡動畫（T4 場景接線）
+        if (audioManager != null) audioManager.PlayGameOver(); // 死亡瞬間音效（僅 Die() 路徑，每次死亡一次）
     }
 
     /// <summary>GameOver → Playing（等同 StartGame）。</summary>

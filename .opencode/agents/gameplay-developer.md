@@ -1,34 +1,66 @@
 ---
-description: "Gameplay Developer - 核心遊戲機制：物理、碰撞、得分、輸入處理。處理 Rigidbody2D、OnCollisionEnter2D、ScoreManager、Input。"
-mode: subagent
-# model: opencode/big-pickle
-# model: openrouter/deepseek/deepseek-v4-flash
+description: Gameplay Developer - 核心遊戲機制：物理、碰撞、得分、輸入處理。處理
+  Rigidbody2D、OnCollisionEnter2D、ScoreManager、Input。
 model: openrouter/deepseek/deepseek-v4.1-flash
-temperature: 0.2
-permission:
-  edit:
-    "*": deny
-    "Assets/**": allow
-    "**/Assets/**": allow
-    ".scratch/memory/gameplay-developer.md": allow
-    "**/.scratch/memory/gameplay-developer.md": allow
-  bash: deny
-  read: allow
-  unityMCP_*: deny
-  unityMCP_manage_script: allow
-  unityMCP_manage_components: allow
-  unityMCP_manage_gameobject: allow
-  unityMCP_read_console: allow
-  unityMCP_run_tests: allow
-  unityMCP_unity_reflect: allow
-  unityMCP_refresh_unity: allow
-  task:
-    "*": deny
+mode: subagent
+color: "#30a46c"
+request:
+  body:
+    temperature: 0.2
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: Assets/**
+    effect: allow
+  - action: edit
+    resource: "**/Assets/**"
+    effect: allow
+  - action: edit
+    resource: .scratch/memory/gameplay-developer.md
+    effect: allow
+  - action: edit
+    resource: "**/.scratch/memory/gameplay-developer.md"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: unityMCP_*
+    resource: "*"
+    effect: deny
+  - action: unityMCP_manage_script
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_components
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_gameobject
+    resource: "*"
+    effect: allow
+  - action: unityMCP_read_console
+    resource: "*"
+    effect: allow
+  - action: unityMCP_run_tests
+    resource: "*"
+    effect: allow
+  - action: unityMCP_unity_reflect
+    resource: "*"
+    effect: allow
+  - action: unityMCP_refresh_unity
+    resource: "*"
+    effect: allow
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 # Gameplay Developer
 
-你是 flipbird 的 Gameplay Developer。
+Gameplay Developer。
 
 ## 職責
 

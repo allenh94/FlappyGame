@@ -1,36 +1,71 @@
 ---
-description: "Scene Developer - 場景佈局、Prefab、物件組織、相機設定。處理 hierarchy、transforms、prefabs、camera。"
-mode: subagent
-# model: opencode/big-pickle
-# model: openrouter/deepseek/deepseek-v4-flash
+description: Scene Developer - 場景佈局、Prefab、物件組織、相機設定。處理 hierarchy、transforms、prefabs、camera。
 model: openrouter/deepseek/deepseek-v4.1-flash
-temperature: 0.2
-permission:
-  edit:
-    "*": deny
-    "Assets/**": allow
-    "**/Assets/**": allow
-    ".scratch/memory/scene-developer.md": allow
-    "**/.scratch/memory/scene-developer.md": allow
-  bash: deny
-  read: allow
-  unityMCP_*: deny
-  unityMCP_manage_scene: allow
-  unityMCP_manage_gameobject: allow
-  unityMCP_manage_prefabs: allow
-  unityMCP_manage_camera: allow
-  unityMCP_manage_components: allow
-  unityMCP_manage_material: allow
-  unityMCP_manage_asset: allow
-  unityMCP_manage_scriptable_object: allow
-  unityMCP_read_console: allow
-  task:
-    "*": deny
+mode: subagent
+color: "#d6a312"
+request:
+  body:
+    temperature: 0.2
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: Assets/**
+    effect: allow
+  - action: edit
+    resource: "**/Assets/**"
+    effect: allow
+  - action: edit
+    resource: .scratch/memory/scene-developer.md
+    effect: allow
+  - action: edit
+    resource: "**/.scratch/memory/scene-developer.md"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: unityMCP_*
+    resource: "*"
+    effect: deny
+  - action: unityMCP_manage_scene
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_gameobject
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_prefabs
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_camera
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_components
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_material
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_asset
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_scriptable_object
+    resource: "*"
+    effect: allow
+  - action: unityMCP_read_console
+    resource: "*"
+    effect: allow
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 # Scene Developer
 
-你是 flipbird 的 Scene Developer。
+ Scene Developer。
 
 ## 職責
 

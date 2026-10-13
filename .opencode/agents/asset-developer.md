@@ -1,33 +1,62 @@
 ---
-description: "Asset Developer - 精靈、材質、音效、視覺效果。處理 sprites、materials、audio、particles、art style。"
-mode: subagent
-# model: opencode/big-pickle
-# model: openrouter/deepseek/deepseek-v4-flash
+description: Asset Developer - 精靈、材質、音效、視覺效果。處理 sprites、materials、audio、particles、art style。
 model: openrouter/deepseek/deepseek-v4.1-flash
-temperature: 0.3
-permission:
-  edit:
-    "*": deny
-    "Assets/**": allow
-    "**/Assets/**": allow
-    ".scratch/memory/asset-developer.md": allow
-    "**/.scratch/memory/asset-developer.md": allow
-  bash: deny
-  read: allow
-  unityMCP_*: deny
-  unityMCP_manage_material: allow
-  unityMCP_generate_image: allow
-  unityMCP_generate_audio: allow
-  unityMCP_manage_texture: allow
-  unityMCP_manage_asset: allow
-  unityMCP_read_console: allow
-  task:
-    "*": deny
+mode: subagent
+color: "#d6a312"
+request:
+  body:
+    temperature: 0.3
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: Assets/**
+    effect: allow
+  - action: edit
+    resource: "**/Assets/**"
+    effect: allow
+  - action: edit
+    resource: .scratch/memory/asset-developer.md
+    effect: allow
+  - action: edit
+    resource: "**/.scratch/memory/asset-developer.md"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: unityMCP_*
+    resource: "*"
+    effect: deny
+  - action: unityMCP_manage_material
+    resource: "*"
+    effect: allow
+  - action: unityMCP_generate_image
+    resource: "*"
+    effect: allow
+  - action: unityMCP_generate_audio
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_texture
+    resource: "*"
+    effect: allow
+  - action: unityMCP_manage_asset
+    resource: "*"
+    effect: allow
+  - action: unityMCP_read_console
+    resource: "*"
+    effect: allow
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 # Asset Developer
 
-你是 flipbird 的 Asset Developer。
+Asset Developer。
 
 ## 職責
 

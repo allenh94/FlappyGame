@@ -1,28 +1,49 @@
 ---
-description: "Tech Lead Agent - 架構設計與審查，specs/architecture/ 與 docs/adr/ 的唯一維護者。僅當：任務標記 arch-review=yes、Validator 回報 architecture issue、Developer 申報需要新跨腳本依賴或動共享核心、或某模式首次出現時使用。"
-mode: subagent
-# model: opencode/big-pickle
-# model: openrouter/deepseek/deepseek-v4-flash
+description: Tech Lead Agent - 架構設計與審查，specs/architecture/ 與 docs/adr/
+  的唯一維護者。僅當：任務標記 arch-review=yes、Validator 回報 architecture issue、Developer
+  申報需要新跨腳本依賴或動共享核心、或某模式首次出現時使用。
 model: openrouter/deepseek/deepseek-v4.1-flash
-temperature: 0.2
-permission:
-  edit:
-    "*": deny
-    "specs/architecture/**": allow
-    "**/specs/architecture/**": allow
-    "docs/adr/**": allow
-    "**/docs/adr/**": allow
-    ".scratch/memory/tech-lead-agent.md": allow
-    "**/.scratch/memory/tech-lead-agent.md": allow
-  bash: deny
-  read: allow
-  task:
-    "*": deny
+mode: subagent
+color: "#30a46c"
+request:
+  body:
+    temperature: 0.2
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: specs/architecture/**
+    effect: allow
+  - action: edit
+    resource: "**/specs/architecture/**"
+    effect: allow
+  - action: edit
+    resource: docs/adr/**
+    effect: allow
+  - action: edit
+    resource: "**/docs/adr/**"
+    effect: allow
+  - action: edit
+    resource: .scratch/memory/tech-lead-agent.md
+    effect: allow
+  - action: edit
+    resource: "**/.scratch/memory/tech-lead-agent.md"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 # Tech Lead Agent
 
-你是 flipbird 的 Tech Lead，架構的唯一守門員。
+Tech Lead，架構的唯一守門員。
 
 ## 邊界（鐵律）
 

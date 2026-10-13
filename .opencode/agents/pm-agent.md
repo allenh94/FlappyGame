@@ -1,26 +1,40 @@
 ---
-description: "PM Agent - 分析需求、建立規格、排優先順序、分配任務給 developers。PROACTIVELY 當收到新需求或功能請求時使用。"
-mode: subagent
-# model: opencode/big-pickle
-# model: openrouter/deepseek/deepseek-v4-flash
+description: PM Agent - 分析需求、建立規格、排優先順序、分配任務給 developers。PROACTIVELY 當收到新需求或功能請求時使用。
 model: openrouter/deepseek/deepseek-v4.1-flash
-temperature: 0.3
-permission:
-  edit:
-    "*": deny
-    "specs/requirements/**": allow
-    "**/specs/requirements/**": allow
-    ".scratch/memory/pm-agent.md": allow
-    "**/.scratch/memory/pm-agent.md": allow
-  bash: deny
-  read: allow
-  task:
-    "*": deny
+mode: subagent
+request:
+  body:
+    temperature: 0.3
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
+  - action: edit
+    resource: specs/requirements/**
+    effect: allow
+  - action: edit
+    resource: "**/specs/requirements/**"
+    effect: allow
+  - action: edit
+    resource: .scratch/memory/pm-agent.md
+    effect: allow
+  - action: edit
+    resource: "**/.scratch/memory/pm-agent.md"
+    effect: allow
+  - action: shell
+    resource: "*"
+    effect: deny
+  - action: read
+    resource: "*"
+    effect: allow
+  - action: subagent
+    resource: "*"
+    effect: deny
 ---
 
 # PM Agent
 
-你是 flipbird 的 Project Manager。
+Project Manager。
 
 ## 職責
 
